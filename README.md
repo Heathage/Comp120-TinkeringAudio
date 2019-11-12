@@ -3,6 +3,16 @@
 ## Contract #1 - Sound Effect Generation (Diegetic Audio)
 Author - [James Heath](https://github.com/Heathage)
 
+### Brief Expectations
+1. Create a tool which will generate sound effects.
+      - Consisting of sequences of tone as well as sample manipulations.
+2. The sound effects should clearly define player actions, such as;
+      - Picking up an item
+      - Attacking
+      - Walking over traps
+      - As well as other player actions found in games.
+3. Tone variations are expected by method of procedual generation.
+
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
 ### Author:-
 [David Brown](https://github.com/GamesDevDave)
