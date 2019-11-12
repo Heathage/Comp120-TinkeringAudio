@@ -25,3 +25,7 @@ Author - [James Heath](https://github.com/Heathage)
 4. Tones and Samples should be modified in a systematic way in order to indicate success or failure.
 ### Licensing information:-
 TBA.
+
+##Useful Links
+
+http://www.benjaminoutram.com/blog/2018/7/13/procedural-audio-in-unity-noise-and-tone
