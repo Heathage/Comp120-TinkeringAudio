@@ -4,29 +4,18 @@ using UnityEngine;
 
 public class PlayTone : MonoBehaviour
 {
-    public AudioClip musicTrack;
+    public AudioClip soundEffect;
     private AudioSource source;
-    private bool musicPlaying;
     void Start()
     {
         source = GetComponent<AudioSource>();
-        musicTrack = Resources.Load<AudioClip>("music");
-        musicPlaying = false;
+        soundEffect = Resources.Load<AudioClip>("tone");
     }
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
-            if (!musicPlaying)
-            {
-                source.Play();
-                musicPlaying = true;
-            }
-            else
-            {
-                source.Stop();
-                musicPlaying = false;
-            }
+            source.PlayOneShot(soundEffect);
         }
     }
 }

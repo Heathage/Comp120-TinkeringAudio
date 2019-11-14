@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ToneGenerator : MonoBehaviour
+public class SoundGenerator : MonoBehaviour
 {
     public TMP_InputField frequency;
     public AudioClip soundEffect;
 
-    private AudioSource source;
+    public AudioSource source;
     private int frequencyValue;
 
     private void Start()
