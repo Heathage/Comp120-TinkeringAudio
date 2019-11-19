@@ -14,8 +14,7 @@ Author - [James Heath](https://github.com/Heathage)
 3. Tone variations are expected by method of procedual generation.
 
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
-### Author:-
-[David Brown](https://github.com/GamesDevDave)
+Author - [David Brown](https://github.com/GamesDevDave)
 ### Requirements of the brief:-
 1. Create sounds to be used on a user interface.
       - This includes sounds such as button clicks, hovering over buttons etc.
