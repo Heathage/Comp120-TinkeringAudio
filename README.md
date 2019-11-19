@@ -24,7 +24,7 @@ Author - [James Heath](https://github.com/Heathage)
 3. Make the sounds configurable by designers.
 4. Tones and Samples should be modified in a systematic way in order to indicate success or failure.
 ### Licensing information:-
-TBA.
+For this piece of work we have opted to use the MIT license. Due to the nature of this project, MIT is appropriate as this software will likely never be commercialised therefore there is no need to keep source code locked away and unamendable. Similarly, having the code open to modification allows for easier improvement of the code. Within the MIT license it states that you can "copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software". Allowing anyone to have this ability means that it is more likely that the program will improve as more people are likely to work on it thus more ideas will be generated. 
 
 ##Useful Links
 
