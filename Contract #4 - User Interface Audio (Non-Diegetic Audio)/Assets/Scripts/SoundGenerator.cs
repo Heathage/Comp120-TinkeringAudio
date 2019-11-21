@@ -1,25 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SoundGenerator : MonoBehaviour
 {
-    public TMP_InputField frequency;
+    public Slider frequencySlider;
+    public Slider volumeSlider;
+    public Slider durationSlider;
     public AudioClip soundEffect;
 
     public AudioSource source;
+
     private int frequencyValue;
+    private int durationValue;
 
     private void Start()
     {
-        CreateToneAudioClip(2000);
         source = GetComponent<AudioSource>();
-        soundEffect = Resources.Load<AudioClip>("audioClip");
-        source.PlayOneShot(soundEffect);
+        source.volume = 0f;
+        volumeSlider.value = 0f;
     }
-    private AudioClip CreateToneAudioClip(int frequency)
+
+    private void Update()
+    {
+        frequencyValue = Mathf.RoundToInt(frequencySlider.value);
+    }
+
+    private AudioClip CreateToneAudioClip(int frequency, int duration)
     {
         int sampleDurationSecs = 5;
         int sampleRate = 44100;
@@ -39,18 +45,19 @@ public class SoundGenerator : MonoBehaviour
         return audioClip;
     }
 
-    void CheckForFrequency()
+    public void ChangeVolume()
     {
-        frequencyValue = int.Parse(frequency.text);
+        source.volume = volumeSlider.value;
     }
 
-
-    void Update()
+    public void CreateSound()
     {
-        //if (frequency.text != "")
-        {
-            //CheckForFrequency();
-            //CreateToneAudioClip(frequencyValue);
-        }
+        soundEffect = CreateToneAudioClip(frequencyValue, durationValue);
+        source.PlayOneShot(soundEffect);
+    }
+
+    public void ChangeDuration()
+    {
+        durationValue = Mathf.RoundToInt(durationSlider.value);
     }
 }
