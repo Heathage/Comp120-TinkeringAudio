@@ -92,6 +92,4 @@ public class SoundGenerator : MonoBehaviour
     {
         SavWav.Save(saveNameInput.text, soundEffect);
     }
-
-
 }
