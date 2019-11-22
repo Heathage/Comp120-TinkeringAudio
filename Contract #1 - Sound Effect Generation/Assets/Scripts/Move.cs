@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public float speed;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,6 @@ public class Move : MonoBehaviour
 
         Vector3 move = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(move);
+        rb.AddForce(move * speed);
     }
 }
