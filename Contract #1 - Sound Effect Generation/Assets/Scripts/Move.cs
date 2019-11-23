@@ -23,4 +23,12 @@ public class Move : MonoBehaviour
 
         rb.AddForce(move * speed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
