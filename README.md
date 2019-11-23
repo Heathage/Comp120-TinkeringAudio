@@ -13,6 +13,9 @@ Author - [James Heath](https://github.com/Heathage)
       - As well as other player actions found in games.
 3. Tone variations are expected by method of procedual generation.
 
+### Done
+1. Created a playable area for a user to explore the different sound effects.
+
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
 Author - [David Brown](https://github.com/GamesDevDave)
 ### Requirements of the brief:-
