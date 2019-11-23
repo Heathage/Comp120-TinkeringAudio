@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
+    public GameObject Platform;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,17 @@ public class Move : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            other.gameObject.SetActive(false);
+            Destroy(Platform);
+        }
+
+        if (other.gameObject.CompareTag("Goal"))
         {
             other.gameObject.SetActive(false);
         }
