@@ -7,14 +7,14 @@ public class Move : MonoBehaviour
     public float speed;
     private Rigidbody rb;
     public GameObject Platform;
-    // Start is called before the first frame update
+    public AudioTinker pickup;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -30,6 +30,7 @@ public class Move : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
+            pickup.pickUp();
         }
 
         if (other.gameObject.CompareTag("Trap"))

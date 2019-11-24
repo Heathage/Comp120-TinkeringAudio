@@ -14,12 +14,12 @@ public class AudioTinker : MonoBehaviour {
     
     
     // Start is called before the first frame update
-    void Start() {
-        audioSource = GetComponent<AudioSource>();
-        outAudioClip = CreateToneAudioClip(1500);
-		PlayOutAudio();
+  //  void Start() {
+  //      audioSource = GetComponent<AudioSource>();
+  //      outAudioClip = CreateToneAudioClip(1500);
+		//PlayOutAudio();
 		
-    }
+  //  }
     
 
     // Public APIs
@@ -35,7 +35,7 @@ public class AudioTinker : MonoBehaviour {
     
     // Private 
     private AudioClip CreateToneAudioClip(int frequency) {
-        int sampleDurationSecs = 5;
+        int sampleDurationSecs = 1;
         int sampleRate = 44100;
         int sampleLength = sampleRate * sampleDurationSecs;
         float maxValue = 1f / 4f;
@@ -51,6 +51,14 @@ public class AudioTinker : MonoBehaviour {
 
         audioClip.SetData(samples, 0);
         return audioClip;
+    }
+
+    public void pickUp()
+    {
+        Debug.Log("Picked up");
+        audioSource = GetComponent<AudioSource>();
+        outAudioClip = CreateToneAudioClip(1500);
+        PlayOutAudio();
     }
 
     
