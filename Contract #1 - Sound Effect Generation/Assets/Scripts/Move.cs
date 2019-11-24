@@ -7,7 +7,7 @@ public class Move : MonoBehaviour
     public float speed;
     private Rigidbody rb;
     public GameObject Platform;
-    public AudioTinker pickup;
+    public AudioTinker playersounds;
 
     void Start()
     {
@@ -30,13 +30,14 @@ public class Move : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             other.gameObject.SetActive(false);
-            pickup.pickUp();
+            playersounds.PickUpSound();
         }
 
         if (other.gameObject.CompareTag("Trap"))
         {
             other.gameObject.SetActive(false);
             Destroy(Platform);
+            playersounds.TrapSound();
         }
 
         if (other.gameObject.CompareTag("Goal"))

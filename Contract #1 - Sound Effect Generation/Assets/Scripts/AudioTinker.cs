@@ -53,15 +53,31 @@ public class AudioTinker : MonoBehaviour {
         return audioClip;
     }
 
-    public void pickUp()
+    public void PickUpSound()
     {
         Debug.Log("Picked up");
         audioSource = GetComponent<AudioSource>();
-        outAudioClip = CreateToneAudioClip(1500);
+        outAudioClip = CreateToneAudioClip(1000);
         PlayOutAudio();
     }
 
-    
+    public void TrapSound()
+    {
+        Debug.Log("Trapped");
+        audioSource = GetComponent<AudioSource>();
+        outAudioClip = CreateToneAudioClip(500);
+        PlayOutAudio();
+    }
+
+    public void ObstacleHitGroundSound()
+    {
+        Debug.Log("Obstacle!");
+        audioSource = GetComponent<AudioSource>();
+        outAudioClip = CreateToneAudioClip(300);
+        PlayOutAudio();
+    }
+
+
 #if UNITY_EDITOR
     //[Button("Save Wav file")]
     private void SaveWavFile() {
