@@ -16,9 +16,9 @@ Author - [James Heath](https://github.com/Heathage)
 ### Done
 1. Created a playable area for a user to explore the different sound effects.
 2. Tones now player dependant on the player actions.
-      a. A tone will play when a player picks up a pink cube. (Signifying picking up that item)
-      b. A tone will play when a player picks up a red cube. (Signifying the player walking into a trap)
-      c. A tone will play when the "Obstacle Cubes" hit the ground. (Signifying the trap closing on the player)
+      - A tone will play when a player picks up a pink cube. (Signifying picking up that item)
+      - A tone will play when a player picks up a red cube. (Signifying the player walking into a trap)
+      - A tone will play when the "Obstacle Cubes" hit the ground. (Signifying the trap closing on the player)
 
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
 Author - [David Brown](https://github.com/GamesDevDave)
