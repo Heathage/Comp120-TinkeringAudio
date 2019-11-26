@@ -4,6 +4,13 @@ using System;
 
 public class SoundGenerator : MonoBehaviour
 {
+    /// <summary>
+    /// Each changable variable of the sound has it's own Slider, Text and Value which is used on the UI creation page.
+    /// All of the variables are public variables as this makes it much easier for designers to be able to use the program as it is simply drag and drop.
+    /// Similarly, the implementation of sliders are in the project to enable designers within the team to be able to edit sounds so that they are suitable
+    /// for the project. An audio source is also declared here as this will be the main variable to be used during sound creation.
+    /// </summary>
+
     public Slider frequencySlider;
     public Slider volumeSlider;
     public Slider durationSlider;
@@ -21,6 +28,11 @@ public class SoundGenerator : MonoBehaviour
     private int sampleValue;
     private float durationValue;
 
+    /// <summary>
+    /// Within the start function, multiple operations are performed. Firstly, the audio source is stored within the source variable. This variable can be used to directly edit the
+    /// audio source. This is needed to perform volume changes etcetera. Other values set within the start function are done to set default values for the different editable factors of the sound.
+    /// This is done, mostly, to ensure that the UI looks presentable and does not have strange values. 
+    /// </summary>
 
     private void Start()
     {
@@ -29,15 +41,6 @@ public class SoundGenerator : MonoBehaviour
         durationValue = 1.00f;
         sampleValue = 44100;
         sampleText.text = "1000";
-    }
-
-    private void Update()
-    {
-        FrequencyTextUpdate();
-        FrequencyValueUpdate();
-        DurationTextUpdate();
-        VolumeTextUpdate();
-        SampleRateTextUpdate();
     }
 
     private AudioClip CreateToneAudioClip(int frequency, float duration, int sample)
@@ -63,6 +66,7 @@ public class SoundGenerator : MonoBehaviour
     public void ChangeVolume()
     {
         source.volume = volumeSlider.value;
+        VolumeTextUpdate();
     }
 
     public void VolumeTextUpdate()
@@ -73,6 +77,7 @@ public class SoundGenerator : MonoBehaviour
     public void ChangeSampleRate()
     {
         sampleValue = Mathf.RoundToInt(sampleSlider.value);
+        SampleRateTextUpdate();
     }
 
     public void SampleRateTextUpdate()
@@ -83,6 +88,7 @@ public class SoundGenerator : MonoBehaviour
     public void ChangeDuration()
     {
         durationValue = (durationSlider.value);
+        DurationTextUpdate();
     }
 
     public void DurationTextUpdate()
@@ -90,10 +96,11 @@ public class SoundGenerator : MonoBehaviour
         durationText.text = durationValue.ToString("F2") + " seconds";
     }
 
-    public void CreateSound()
+
+    public void FrequencyValueUpdate()
     {
-        soundEffect = CreateToneAudioClip(frequencyValue, durationValue, sampleValue);
-        source.PlayOneShot(soundEffect);
+        frequencyValue = Mathf.RoundToInt(frequencySlider.value);
+        FrequencyTextUpdate();
     }
 
     public void FrequencyTextUpdate()
@@ -101,9 +108,11 @@ public class SoundGenerator : MonoBehaviour
         frequencyText.text = frequencyValue.ToString() + "Hz";
     }
 
-    public void FrequencyValueUpdate()
+
+    public void CreateSound()
     {
-        frequencyValue = Mathf.RoundToInt(frequencySlider.value);
+        soundEffect = CreateToneAudioClip(frequencyValue, durationValue, sampleValue);
+        source.PlayOneShot(soundEffect);
     }
 
     public void SaveToWav()
