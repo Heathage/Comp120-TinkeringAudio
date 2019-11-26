@@ -13,6 +13,9 @@ Author - [James Heath](https://github.com/Heathage)
       - As well as other player actions found in games.
 3. Tone variations are expected by method of procedual generation.
 
+### How to use:-
+When you open the unity project you may find that the correct scene has not been loaded. Please open the Audio scene and then play the scene. You will need to use headphones. WASD for movement. 
+
 ### Done
 1. Created a playable area for a user to explore the different sound effects.
 2. Tones now player dependant on the player actions.
