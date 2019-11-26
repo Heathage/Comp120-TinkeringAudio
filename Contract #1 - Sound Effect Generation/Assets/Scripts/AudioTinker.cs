@@ -26,16 +26,18 @@ public class AudioTinker : MonoBehaviour {
         
     // Generates the tone with reference to the frequency passed
     
-    private AudioClip CreateToneAudioClip(int frequency) {
-        int sampleDurationSecs = 1;
+    private AudioClip CreateToneAudioClip(int frequency, float duration) 
+    {
+        float sampleDurationSecs = duration;
         int sampleRate = 44100;
-        int sampleLength = sampleRate * sampleDurationSecs;
+        int sampleLength = Mathf.FloorToInt(sampleRate * sampleDurationSecs);
         float maxValue = 1f / 4f;
         
         var audioClip = AudioClip.Create("tone", sampleLength, 1, sampleRate, false);
         
         float[] samples = new float[sampleLength];
-        for (var i = 0; i < sampleLength; i++) {
+        for (var i = 0; i < sampleLength; i++) 
+        {
             float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float) i / (float) sampleRate));
             float v = s * maxValue;
             samples[i] = v;
@@ -49,10 +51,10 @@ public class AudioTinker : MonoBehaviour {
 
     public void PickUpSound()
     {
-        ranFreq = Random.Range(775, 825);
+        ranFreq = Random.Range(750, 850);
         Debug.Log("Picked up");
         Debug.Log(ranFreq);
-        outAudioClip = CreateToneAudioClip(ranFreq);
+        outAudioClip = CreateToneAudioClip(ranFreq, 0.25f);
         PlayOutAudio();
     }
 
@@ -61,7 +63,7 @@ public class AudioTinker : MonoBehaviour {
     public void TrapSound()
     {
         Debug.Log("Trapped");
-        outAudioClip = CreateToneAudioClip(500);
+        outAudioClip = CreateToneAudioClip(500, 1.0f);
         PlayOutAudio();
     }
 
@@ -72,7 +74,7 @@ public class AudioTinker : MonoBehaviour {
         ranFreq = Random.Range(350, 450);
         Debug.Log("Obstacle!");
         Debug.Log(ranFreq);
-        outAudioClip = CreateToneAudioClip(ranFreq);
+        outAudioClip = CreateToneAudioClip(ranFreq, 0.6f);
         PlayOutAudio();
     }
 
