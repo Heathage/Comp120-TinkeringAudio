@@ -11,6 +11,8 @@ public class AudioTinker : MonoBehaviour {
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    int ranFreq;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -47,8 +49,10 @@ public class AudioTinker : MonoBehaviour {
 
     public void PickUpSound()
     {
+        ranFreq = Random.Range(775, 825);
         Debug.Log("Picked up");
-        outAudioClip = CreateToneAudioClip(1000);
+        Debug.Log(ranFreq);
+        outAudioClip = CreateToneAudioClip(ranFreq);
         PlayOutAudio();
     }
 
@@ -65,8 +69,10 @@ public class AudioTinker : MonoBehaviour {
 
     public void ObstacleHitGroundSound()
     {
-            Debug.Log("Obstacle!");
-            outAudioClip = CreateToneAudioClip(300);
-            PlayOutAudio();
+        ranFreq = Random.Range(350, 450);
+        Debug.Log("Obstacle!");
+        Debug.Log(ranFreq);
+        outAudioClip = CreateToneAudioClip(ranFreq);
+        PlayOutAudio();
     }
 }
