@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-
+    //Gets input from the player and moves character.
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -25,6 +25,7 @@ public class Move : MonoBehaviour
         rb.AddForce(move * speed);
     }
 
+    //Runs a method playing a tone from AudioTinker.cs dependant on a player action.
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))
