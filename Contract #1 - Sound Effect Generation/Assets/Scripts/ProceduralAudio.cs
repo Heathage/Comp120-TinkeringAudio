@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Note to reviewer. I found this code and tried to implement it last night, I am still trying to decipher it.
+
 [RequireComponent(typeof(AudioLowPassFilter))]
 public class ProceduralAudio : MonoBehaviour
 {

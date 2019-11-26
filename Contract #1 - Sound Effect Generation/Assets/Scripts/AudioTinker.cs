@@ -22,7 +22,8 @@ public class AudioTinker : MonoBehaviour {
   //  }
     
 
-    // Public APIs
+    //Used to play the tone generated
+    
     public void PlayOutAudio() {
         audioSource.PlayOneShot(outAudioClip);    
     }
@@ -33,7 +34,8 @@ public class AudioTinker : MonoBehaviour {
     }
     
     
-    // Private 
+    // Generates the tone with reference to the frequency passed
+    
     private AudioClip CreateToneAudioClip(int frequency) {
         int sampleDurationSecs = 1;
         int sampleRate = 44100;
@@ -53,6 +55,8 @@ public class AudioTinker : MonoBehaviour {
         return audioClip;
     }
 
+    //Generates a tone for picking up objects and plays it.
+
     public void PickUpSound()
     {
         Debug.Log("Picked up");
@@ -61,6 +65,8 @@ public class AudioTinker : MonoBehaviour {
         PlayOutAudio();
     }
 
+    //Generates a tone for when the player activates the trap and plays it.
+
     public void TrapSound()
     {
         Debug.Log("Trapped");
@@ -68,6 +74,8 @@ public class AudioTinker : MonoBehaviour {
         outAudioClip = CreateToneAudioClip(500);
         PlayOutAudio();
     }
+
+    //Generates a tone for when the trap obstacles hit the ground and plays it.
 
     public void ObstacleHitGroundSound()
     {
