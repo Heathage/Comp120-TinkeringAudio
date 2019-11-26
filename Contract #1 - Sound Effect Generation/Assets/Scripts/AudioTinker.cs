@@ -75,4 +75,9 @@ public class AudioTinker : MonoBehaviour {
         outAudioClip = CreateToneAudioClip(ranFreq);
         PlayOutAudio();
     }
+
+    public void Goal()
+    {
+
+    }
 }

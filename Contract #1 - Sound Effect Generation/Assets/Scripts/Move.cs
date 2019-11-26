@@ -44,6 +44,7 @@ public class Move : MonoBehaviour
         if (other.gameObject.CompareTag("Goal"))
         {
             other.gameObject.SetActive(false);
+            playersounds.Goal();
         }
     }
 }
