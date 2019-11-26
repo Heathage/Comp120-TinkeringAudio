@@ -7,22 +7,28 @@ public class SoundGenerator : MonoBehaviour
     public Slider frequencySlider;
     public Slider volumeSlider;
     public Slider durationSlider;
+    public Slider sampleSlider;
     public AudioClip soundEffect;
     public Text frequencyText;
     public Text durationText;
     public Text volumeText;
+    public Text sampleText;
     public InputField saveNameInput;
 
     public AudioSource source;
 
     private int frequencyValue;
-    private int durationValue;
+    private int sampleValue;
+    private float durationValue;
+
 
     private void Start()
     {
         source = GetComponent<AudioSource>();
         source.volume = 0f;
-        durationValue = 1;
+        durationValue = 1.00f;
+        sampleValue = 44100;
+        sampleText.text = "1000";
     }
 
     private void Update()
@@ -31,13 +37,14 @@ public class SoundGenerator : MonoBehaviour
         FrequencyValueUpdate();
         DurationTextUpdate();
         VolumeTextUpdate();
+        SampleRateTextUpdate();
     }
 
-    private AudioClip CreateToneAudioClip(int frequency, int duration)
+    private AudioClip CreateToneAudioClip(int frequency, float duration, int sample)
     {
-        int sampleDurationSecs = duration;
-        int sampleRate = 44100;
-        int sampleLength = sampleRate * sampleDurationSecs;
+        float sampleDurationSecs = duration;
+        int sampleRate = sample;
+        int sampleLength = Mathf.FloorToInt(sampleRate * sampleDurationSecs);
         float maxValue = 1f / 4f;
 
         var audioClip = AudioClip.Create("audioClip", sampleLength, 1, sampleRate, false);
@@ -62,19 +69,30 @@ public class SoundGenerator : MonoBehaviour
     {
         volumeText.text = source.volume.ToString("F2");
     }
+
+    public void ChangeSampleRate()
+    {
+        sampleValue = Mathf.RoundToInt(sampleSlider.value);
+    }
+
+    public void SampleRateTextUpdate()
+    {
+        sampleText.text = sampleSlider.value.ToString();
+    }
+
     public void ChangeDuration()
     {
-        durationValue = Mathf.RoundToInt(durationSlider.value);
+        durationValue = (durationSlider.value);
     }
 
     public void DurationTextUpdate()
     {
-        durationText.text = durationValue.ToString() + " seconds";
+        durationText.text = durationValue.ToString("F2") + " seconds";
     }
 
     public void CreateSound()
     {
-        soundEffect = CreateToneAudioClip(frequencyValue, durationValue);
+        soundEffect = CreateToneAudioClip(frequencyValue, durationValue, sampleValue);
         source.PlayOneShot(soundEffect);
     }
 
