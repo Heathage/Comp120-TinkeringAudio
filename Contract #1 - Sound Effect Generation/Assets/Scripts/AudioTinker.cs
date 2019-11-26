@@ -11,29 +11,23 @@ using UnityEditor;
 public class AudioTinker : MonoBehaviour {
     private AudioSource audioSource;
     private AudioClip outAudioClip;
-    
-    
-    // Start is called before the first frame update
-  //  void Start() {
-  //      audioSource = GetComponent<AudioSource>();
-  //      outAudioClip = CreateToneAudioClip(1500);
-		//PlayOutAudio();
-		
-  //  }
-    
+    bool dropped = false;
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
     //Used to play the tone generated
     
     public void PlayOutAudio() {
         audioSource.PlayOneShot(outAudioClip);    
     }
 
-
-    public void StopAudio() {
-        audioSource.Stop();
-    }
-    
-    
+    //public void StopAudio() {
+        //audioSource.Stop();
+    //}
+        
     // Generates the tone with reference to the frequency passed
     
     private AudioClip CreateToneAudioClip(int frequency) {
@@ -60,7 +54,6 @@ public class AudioTinker : MonoBehaviour {
     public void PickUpSound()
     {
         Debug.Log("Picked up");
-        audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(1000);
         PlayOutAudio();
     }
@@ -70,7 +63,6 @@ public class AudioTinker : MonoBehaviour {
     public void TrapSound()
     {
         Debug.Log("Trapped");
-        audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(500);
         PlayOutAudio();
     }
@@ -79,10 +71,19 @@ public class AudioTinker : MonoBehaviour {
 
     public void ObstacleHitGroundSound()
     {
-        Debug.Log("Obstacle!");
-        audioSource = GetComponent<AudioSource>();
-        outAudioClip = CreateToneAudioClip(300);
-        PlayOutAudio();
+        if (!dropped)
+        {
+            dropped = true;
+            Debug.Log("Obstacle!");
+            outAudioClip = CreateToneAudioClip(300);
+            PlayOutAudio();
+        }
+
+        //Prevents the tone playing again when the trap has already dropped.
+        else
+        {
+            Debug.Log("Dropped");
+        }
     }
 
 
