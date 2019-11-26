@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-//using NaughtyAttributes;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -11,7 +10,6 @@ using UnityEditor;
 public class AudioTinker : MonoBehaviour {
     private AudioSource audioSource;
     private AudioClip outAudioClip;
-    bool dropped = false;
 
     void Start()
     {
@@ -23,10 +21,6 @@ public class AudioTinker : MonoBehaviour {
     public void PlayOutAudio() {
         audioSource.PlayOneShot(outAudioClip);    
     }
-
-    //public void StopAudio() {
-        //audioSource.Stop();
-    //}
         
     // Generates the tone with reference to the frequency passed
     
@@ -75,14 +69,4 @@ public class AudioTinker : MonoBehaviour {
             outAudioClip = CreateToneAudioClip(300);
             PlayOutAudio();
     }
-
-
-#if UNITY_EDITOR
-    //[Button("Save Wav file")]
-    private void SaveWavFile() {
-        string path = EditorUtility.SaveFilePanel("Where do you want the wav file to go?", "", "", "wav");
-        var audioClip = CreateToneAudioClip(1500);
-        SaveWavUtil.Save(path, audioClip);
-    }
-#endif
 }
