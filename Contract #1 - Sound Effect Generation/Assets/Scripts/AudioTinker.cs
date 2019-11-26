@@ -71,19 +71,9 @@ public class AudioTinker : MonoBehaviour {
 
     public void ObstacleHitGroundSound()
     {
-        if (!dropped)
-        {
-            dropped = true;
             Debug.Log("Obstacle!");
             outAudioClip = CreateToneAudioClip(300);
             PlayOutAudio();
-        }
-
-        //Prevents the tone playing again when the trap has already dropped.
-        else
-        {
-            Debug.Log("Dropped");
-        }
     }
 
 
