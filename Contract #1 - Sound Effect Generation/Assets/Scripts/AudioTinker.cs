@@ -80,6 +80,7 @@ public class AudioTinker : MonoBehaviour {
 
     public void Goal()
     {
-
+        outAudioClip = CreateToneAudioClip(1000, 1.0f);
+        PlayOutAudio();
     }
 }
