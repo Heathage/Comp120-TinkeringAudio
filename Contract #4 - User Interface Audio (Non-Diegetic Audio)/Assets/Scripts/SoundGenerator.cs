@@ -122,6 +122,11 @@ public class SoundGenerator : MonoBehaviour
         FrequencyTextUpdate();
     }
 
+    /// <summary>
+    /// Values are saved into the negative variables so that they can be loaded whenever requested by the designer. This makes it easier for small adjustments to be made as they can test multiple
+    /// sounds whilst still keeping values that have been stored.
+    /// </summary>
+
     public void SaveAsNegative()
     {
         negativeFrequencyValue = frequencyValue;
