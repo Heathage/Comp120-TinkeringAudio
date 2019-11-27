@@ -12,6 +12,7 @@ public class AudioTinker : MonoBehaviour {
     private AudioClip outAudioClip;
 
     int ranFreq;
+    int totalPickups = 0;
 
     void Start()
     {
@@ -26,8 +27,9 @@ public class AudioTinker : MonoBehaviour {
         
     // Generates the tone with reference to the frequency passed
     
-    private AudioClip CreateToneAudioClip(int frequency, float duration) 
+    private AudioClip CreateToneAudioClip(int frequency, float duration, int totalPickups) 
     {
+        int freqAdd = totalPickups * 25;
         float sampleDurationSecs = duration;
         int sampleRate = 44100;
         int sampleLength = Mathf.FloorToInt(sampleRate * sampleDurationSecs);
@@ -38,7 +40,7 @@ public class AudioTinker : MonoBehaviour {
         float[] samples = new float[sampleLength];
         for (var i = 0; i < sampleLength; i++) 
         {
-            float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float) i / (float) sampleRate));
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency + freqAdd) * ((float) i / (float) sampleRate));
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -51,10 +53,11 @@ public class AudioTinker : MonoBehaviour {
 
     public void PickUpSound()
     {
-        ranFreq = Random.Range(750, 850);
+        totalPickups = totalPickups + 1;
+        //ranFreq = Random.Range(750, 850);
         Debug.Log("Picked up");
         Debug.Log(ranFreq);
-        outAudioClip = CreateToneAudioClip(ranFreq, 0.25f);
+        outAudioClip = CreateToneAudioClip(750, 0.25f, totalPickups);
         PlayOutAudio();
     }
 
@@ -63,7 +66,7 @@ public class AudioTinker : MonoBehaviour {
     public void TrapSound()
     {
         Debug.Log("Trapped");
-        outAudioClip = CreateToneAudioClip(500, 1.0f);
+        outAudioClip = CreateToneAudioClip(500, 1.0f, 0);
         PlayOutAudio();
     }
 
@@ -74,13 +77,13 @@ public class AudioTinker : MonoBehaviour {
         ranFreq = Random.Range(350, 450);
         Debug.Log("Obstacle!");
         Debug.Log(ranFreq);
-        outAudioClip = CreateToneAudioClip(ranFreq, 0.6f);
+        outAudioClip = CreateToneAudioClip(ranFreq, 0.6f, 0);
         PlayOutAudio();
     }
 
     public void Goal()
     {
-        outAudioClip = CreateToneAudioClip(1000, 1.0f);
+        outAudioClip = CreateToneAudioClip(1000, 1.0f, 0);
         PlayOutAudio();
     }
 }
