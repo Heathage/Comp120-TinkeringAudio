@@ -19,9 +19,10 @@ When you open the unity project you may find that the correct scene has not been
 ### Done
 1. Created a playable area for a user to explore the different sound effects.
 2. Tones now player dependant on the player actions.
-      - A tone will play when a player picks up a pink cube. (Signifying picking up that item)
+      - A tone, with a random frequency between two values, will play when a player picks up a pink cube. (Signifying picking up that item)
       - A tone will play when a player picks up a red cube. (Signifying the player walking into a trap)
-      - A tone will play when the "Obstacle Cubes" hit the ground. (Signifying the trap closing on the player)
+      - A tone, with a random frequency between two values, will play when the "Obstacle Cubes" hit the ground. (Signifying the trap closing on the player)
+      - A tone will play when the player picks up the gold cube. (Signifying the player winning)
 
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
 Author - [David Brown](https://github.com/GamesDevDave)
