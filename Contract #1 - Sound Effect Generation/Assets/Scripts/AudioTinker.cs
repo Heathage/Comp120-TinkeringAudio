@@ -29,7 +29,6 @@ public class AudioTinker : MonoBehaviour {
     
     private AudioClip CreateToneAudioClip(int frequency, float duration, int totalPickups) 
     {
-        int freqAdd = totalPickups * 25;
         float sampleDurationSecs = duration;
         int sampleRate = 44100;
         int sampleLength = Mathf.FloorToInt(sampleRate * sampleDurationSecs);
@@ -40,7 +39,7 @@ public class AudioTinker : MonoBehaviour {
         float[] samples = new float[sampleLength];
         for (var i = 0; i < sampleLength; i++) 
         {
-            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency + freqAdd) * ((float) i / (float) sampleRate));
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency + totalPickups) * ((float) i / (float) sampleRate));
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -53,7 +52,7 @@ public class AudioTinker : MonoBehaviour {
 
     public void PickUpSound()
     {
-        totalPickups = totalPickups + 1;
+        totalPickups = totalPickups + 25;
         //ranFreq = Random.Range(750, 850);
         Debug.Log("Picked up");
         Debug.Log(ranFreq);
