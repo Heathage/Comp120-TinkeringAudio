@@ -53,7 +53,6 @@ public class AudioTinker : MonoBehaviour {
     public void PickUpSound()
     {
         totalPickups = totalPickups + 25;
-        //ranFreq = Random.Range(750, 850);
         Debug.Log("Picked up");
         Debug.Log(ranFreq);
         outAudioClip = CreateToneAudioClip(750, 0.25f, totalPickups);
