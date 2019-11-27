@@ -81,6 +81,7 @@ public class AudioTinker : MonoBehaviour {
 
     public void Goal()
     {
+        //timer between each PlayOutAudio??
         outAudioClip = CreateToneAudioClip(1000, 1.0f, 0);
         PlayOutAudio();
     }
