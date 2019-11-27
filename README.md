@@ -37,7 +37,3 @@ Author - [David Brown](https://github.com/GamesDevDave)
 In order to use the program, clone the repository from Github. After this, simply navigate to Project 4 within the file structure and open it as a Unity Project. Navigate to the "Scenes" folder within the Project Hierarchy and open the "StartMenu" scene. Press Play and everything should work as intended. Frequency, Duration, Sample Rate and Volume are all editable.
 ### Licensing information:-
 For this piece of work we have opted to use the MIT license. Due to the nature of this project, MIT is appropriate as this software will likely never be commercialised therefore there is no need to keep source code locked away and unamendable. Similarly, having the code open to modification allows for easier improvement of the code. Within the MIT license it states that you can "copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software". Allowing anyone to have this ability means that it is more likely that the program will improve as more people are likely to work on it thus more ideas will be generated. 
-
-##Useful Links
-
-http://www.benjaminoutram.com/blog/2018/7/13/procedural-audio-in-unity-noise-and-tone
