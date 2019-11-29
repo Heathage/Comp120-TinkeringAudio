@@ -6,6 +6,18 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+// -----------------------------------------------------------------------------------------------------------
+// <copyright file="AudioTinker.cs">
+// MIT Licence Copyright (c) 2019.
+// </copyright>
+// <author>James Mead Heath</author>
+// <summary>
+// Generates the tones that the player will hear in the game world.
+// Tones are generated based on what player action has been completed.
+// Methods are labeled to define these actions, and each pass through different values to the tone generator.
+// </summary>
+// -----------------------------------------------------------------------------------------------------------
+
 
 public class AudioTinker : MonoBehaviour {
     private AudioSource audioSource;

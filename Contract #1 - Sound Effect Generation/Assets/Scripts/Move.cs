@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ---------------------------------------------------------------
+// <copyright file="Move.cs">
+// MIT Licence Copyright (c) 2019.
+// </copyright>
+// <author>James Mead Heath</author>
+// <summary>
+// Allows the player to move.
+// Keeps track of what the player may collide with while moving.
+// Executing code dependant on what they have collided with.
+// </summary>
+// ---------------------------------------------------------------
+
 public class Move : MonoBehaviour
 {
     public float speed;
@@ -31,7 +43,7 @@ public class Move : MonoBehaviour
 
     /// <summary>
     /// Checks to see what player action has been done dependant on what the player collided with. E.g, Picking up an item.
-    /// Runs a choosen method from AudioTinker.cs dependant on the action.
+    /// Runs a chosen method from AudioTinker.cs dependant on the action.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
@@ -63,6 +75,11 @@ public class Move : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks to see if the player has collided with any of the walls.
+    /// Runs the chosen method from AudioTinker.cs to signify this. 
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Wall")
