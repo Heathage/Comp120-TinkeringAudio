@@ -62,4 +62,14 @@ public class Move : MonoBehaviour
             playersounds.GoalNotComplete();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            playersounds.WallCollision();
+        }
+    }
+
+
 }

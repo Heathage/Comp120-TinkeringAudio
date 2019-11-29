@@ -98,7 +98,8 @@ public class AudioTinker : MonoBehaviour {
     }
 
     /// <summary>
-    /// When the player picks up the gold cube, plays a tone with these values to signify victory. 
+    /// When the player picks up the gold cube (and has picked up all the pink cubes)
+    /// Plays a tone with these values to signify victory. 
     /// </summary>
     public void Goal()
     {
@@ -107,9 +108,26 @@ public class AudioTinker : MonoBehaviour {
         PlayOutAudio();
     }
 
+    /// <summary>
+    /// When the player picks up the gold cube (and hasn't picked up all the pink cubes)
+    /// Plays a tone with these values to signify that the goal is incomplete. 
+    /// </summary>
     public void GoalNotComplete()
     {
         outAudioClip = CreateToneAudioClip(200, 1.0f, 0);
+        PlayOutAudio();
+    }
+
+
+    /// <summary>
+    /// When the player bumps into any of the walls. 
+    /// Plays a tone that signifies that collision. 
+    /// </summary>
+    public void WallCollision()
+    {
+        ranFreq = Random.Range(275, 325);
+        Debug.Log(ranFreq);
+        outAudioClip = CreateToneAudioClip(ranFreq, 0.25f, 0);
         PlayOutAudio();
     }
 }
