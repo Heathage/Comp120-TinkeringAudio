@@ -106,4 +106,10 @@ public class AudioTinker : MonoBehaviour {
         outAudioClip = CreateToneAudioClip(1000, 1.0f, 0);
         PlayOutAudio();
     }
+
+    public void GoalNotComplete()
+    {
+        outAudioClip = CreateToneAudioClip(200, 1.0f, 0);
+        PlayOutAudio();
+    }
 }

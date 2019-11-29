@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    //Player postion value
     public Transform target;
+    //Distance between player and camera.
     private Vector3 offset;
 
-    //Creates an offset position value for where the camera is in relation to the player.
+    /// <summary>
+    /// Creates a value for offset which defines where the camera is in relation to the player.
+    /// </summary>
     void Start()
     {
         offset = this.transform.position - target.position;
     }
 
-    //Moves the camera when the player moves.
+    /// <summary>
+    /// Moves the camera to follow the player when they move.
+    /// Keeps the camera at the same distance away. 
+    /// </summary>
     void Update()
     {
         this.transform.position = offset + target.position;
 
-        //this.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 }

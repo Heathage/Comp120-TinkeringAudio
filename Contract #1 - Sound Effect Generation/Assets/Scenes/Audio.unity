@@ -2116,6 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 65
+  pickUpsNeeded: 0
   Platform: {fileID: 1292658076}
   playersounds: {fileID: 1686721333}
 --- !u!1001 &978266692
@@ -3393,7 +3394,7 @@ GameObject:
   - component: {fileID: 1716780177}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4533,6 +4534,11 @@ PrefabInstance:
     - target: {fileID: 9167107551281417587, guid: b488486c18c40354bb8211f119f09a7e,
         type: 3}
       propertyPath: m_Name
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167107551281417587, guid: b488486c18c40354bb8211f119f09a7e,
+        type: 3}
+      propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 9167107551281417591, guid: b488486c18c40354bb8211f119f09a7e,

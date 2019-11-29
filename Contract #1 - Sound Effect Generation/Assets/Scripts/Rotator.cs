@@ -5,7 +5,9 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
 
-    // Rotates the cubes found in the game world.
+    /// <summary>
+    /// Rotates the cubes within the game world, makes them more exciting. 
+    /// </summary>
     void Update()
     {
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);

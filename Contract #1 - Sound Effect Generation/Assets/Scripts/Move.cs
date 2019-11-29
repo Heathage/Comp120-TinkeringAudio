@@ -5,16 +5,20 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public float speed;
+    public int pickUpsNeeded = 0;
     private Rigidbody rb;
     public GameObject Platform;
     public AudioTinker playersounds;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    //Gets input from the player and moves character.
+    /// <summary>
+    /// Allows the player to move.
+    /// </summary>
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -25,11 +29,17 @@ public class Move : MonoBehaviour
         rb.AddForce(move * speed);
     }
 
-    //Runs a method playing a tone from AudioTinker.cs dependant on a player action.
+    /// <summary>
+    /// Checks to see what player action has been done dependant on what the player collided with. E.g, Picking up an item.
+    /// Runs a choosen method from AudioTinker.cs dependant on the action.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))
         {
+            pickUpsNeeded += 1;
+            Debug.Log(pickUpsNeeded);
             other.gameObject.SetActive(false);
             playersounds.PickUpSound();
         }
@@ -41,10 +51,15 @@ public class Move : MonoBehaviour
             playersounds.TrapSound();
         }
 
-        if (other.gameObject.CompareTag("Goal"))
+        if ((other.gameObject.CompareTag("Goal")) && (pickUpsNeeded == 14))
         {
             other.gameObject.SetActive(false);
             playersounds.Goal();
+        }
+
+        if ((other.gameObject.CompareTag("Goal")) && (pickUpsNeeded != 14))
+        {
+            playersounds.GoalNotComplete();
         }
     }
 }
