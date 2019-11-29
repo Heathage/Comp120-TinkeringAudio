@@ -6,7 +6,7 @@ Author - [James Heath](https://github.com/Heathage)
 ### Brief Expectations
 1. Create a tool which will generate sound effects.
       - Consisting of sequences of tone as well as sample manipulations.
-2. The sound effects should clearly define player actions, such as;
+2. The sound effects should clearly define player actions, for example;
       - Picking up an item
       - Attacking
       - Walking over traps
@@ -14,16 +14,22 @@ Author - [James Heath](https://github.com/Heathage)
 3. Tone variations are expected by method of procedual generation.
 
 ### How to use:-
-When you open the unity project you may find that the correct scene has not been loaded. Please open the Audio scene and then play the scene. You will need to use headphones. WASD for movement. 
+1. When you open the unity project you may find that the correct scene has not been loaded. Please open the Audio Scene, within the scnes folder, and then play the scene. 
+2. You will need to use headphones to clearly hear the tones, I suggest that your volume is not all the way up. 
+3. WASD for movement. 
+4. The game will not close when the goal is complete. 
+5. The idea is for the player to collect all the pink cubes and then the gold cube. 
+- However, to experience all the different tones being generated. I suggest you try to pick up the gold cube before all the pink ones.  
 
-### Done
+### Features
 1. Created a playable area for a user to explore the different sound effects.
-2. Tones now player dependant on the player actions.
+2. Tones are player dependant on the player actions.
       - A tone, with a random frequency between two values, will play when a player picks up a pink cube. (Signifying picking up that item)
       - A tone will play when a player picks up a red cube. (Signifying the player walking into a trap)
       - A tone, with a random frequency between two values, will play when the "Obstacle Cubes" hit the ground. (Signifying the trap closing on the player)
       - A tone will play when the player picks up the gold cube. (Signifying the player winning) This happens only when the player has collected all the pink cubes. 
-      -A tone will play when the player tries to pick up the gold cube without first collecting all the pink cubes. (Signifying that the player cannot complete the level yet)
+      - A tone will play when the player tries to pick up the gold cube without first collecting all the pink cubes. (Signifying that the player cannot complete the level yet)
+      - A  random tone, between two predefined frequencies, will play when the play collides with a wall. (Signifying their collison with the walls)
 
 ## Contract #4 - User Interface Audio (Non-Diegetic Audio)
 Author - [David Brown](https://github.com/GamesDevDave)
